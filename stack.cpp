@@ -39,7 +39,3 @@ bool Stack::IsEmpty() {
 bool Stack::IsFull() {
     return currentSize == maxSize;
 }
-
-int* values;
-int currentSize;
-int maxSize;
