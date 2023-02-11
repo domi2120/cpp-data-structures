@@ -25,7 +25,7 @@ void Queue::Enqueue(int value) {
     }
 
     *queueEnd = value; // set enqueued value at the current end of the queue
-    cout << "currentSize: " << currentSize << " pushed value: " << value << " to address: " << queueEnd << " QueueEnd: " << queueEnd << " QueueFront: " << queueFront << "\n";
+    cout << "currentSize: " << currentSize << " enqueued value: " << value << " to address: " << queueEnd << " QueueEnd: " << queueEnd << " QueueFront: " << queueFront << "\n";
     currentSize++; // increase the size counter
 }
 
@@ -35,7 +35,7 @@ int Queue::Dequeue() {
     }
 
     int value = *queueFront; // get the value of the current front of the queue
-    cout << "currentSize: " << currentSize << " popped value: " << value << " from address: " << queueFront << " QueueEnd: " << queueEnd << " QueueFront: " << queueFront << "\n";
+    cout << "currentSize: " << currentSize << " dequeued value: " << value << " from address: " << queueFront << " QueueEnd: " << queueEnd << " QueueFront: " << queueFront << "\n";
     
     if (queueFront == values + maxSize -1)
     {
