@@ -4,20 +4,21 @@
 
 int TestStack() {
 
-    Stack* b = new Stack(5);
+    Stack* stack = new Stack(5);
 
     int counter = 0;
 
-    while (!b->IsFull()) {
-        b->Push(counter++);
+    while (!stack->IsFull()) {
+        stack->Push(counter++);
     }
 
     cout << "\n";
 
-    while (!b->IsEmpty()) {
-        b->Pop();
+    while (!stack->IsEmpty()) {
+        stack->Pop();
     }
 
+    delete stack;
     return 0;
 }
 
@@ -33,11 +34,12 @@ int TestQueue() {
     queue->Dequeue();
     queue->Dequeue();
     queue->Dequeue();
+
+    delete queue;
     return 0;
 }
 
 int main() {
-    
     TestStack();
     TestQueue();
     return 0;

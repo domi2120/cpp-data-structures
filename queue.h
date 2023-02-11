@@ -7,6 +7,7 @@ class Queue {
 
     public:
     Queue(int size);
+    ~Queue();
     void Enqueue(int i);
     int Dequeue();
     bool IsEmpty();

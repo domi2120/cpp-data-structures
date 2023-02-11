@@ -6,6 +6,7 @@ class Stack
 {
     public:
     Stack(int size);
+    ~Stack();
     void Push(int i);
     int Pop();
     bool IsEmpty();

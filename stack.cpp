@@ -9,6 +9,10 @@ Stack::Stack(int size) {
     cout << "allocated " << sizeof(int) * size << " bytes at " << values << "\n";
 };
 
+Stack::~Stack() {
+    free(values);
+}
+
 void Stack::Push(int i) {
     if (IsFull()){
         throw std::runtime_error("Stack exceeded maximum size");

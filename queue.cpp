@@ -11,6 +11,10 @@ Queue::Queue(int size) {
     cout << "allocated " << sizeof(int) * size << " bytes at " << values << "\n";
 };
 
+Queue::~Queue() {
+    free(values);
+}
+
 void Queue::Enqueue(int value) {
     if (IsFull()){
         throw std::runtime_error("Queue exceeded maximum size");
