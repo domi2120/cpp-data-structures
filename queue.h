@@ -3,20 +3,21 @@ using namespace std;
 #pragma once
 
 // a circular queue
+template <typename T>
 class Queue {
 
     public:
     Queue(int size);
     ~Queue();
-    void Enqueue(int i);
-    int Dequeue();
+    void Enqueue(T i);
+    T Dequeue();
     bool IsEmpty();
     bool IsFull();
 
     private:
-    int* values;
+    T* values;
     int currentSize;
     int maxSize;
-    int* queueFront;
-    int* queueEnd;
+    T* queueFront;
+    T* queueEnd;
 };

@@ -23,8 +23,8 @@ int TestStack() {
 }
 
 int TestQueue() {
-    Queue* queue = new Queue(3);
-    int counter = 0;
+    Queue<long>* queue = new Queue<long>(3);
+    long counter = __INT_MAX__;
 
     queue->Enqueue(counter++);
     queue->Enqueue(counter++);

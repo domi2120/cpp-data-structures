@@ -3,19 +3,22 @@
 #include "queue.h"
 using namespace std;
 
-Queue::Queue(int size) {
+template <class T>
+Queue<T>::Queue(int size) {
     maxSize = size;
-    values = (int*) malloc(sizeof(int) * size);
+    values = (T*) malloc(sizeof(T) * size);
     queueFront = values;
     queueEnd = values -1; //start with the queueEnd at -1, this will ensure the first Enqueue stats at the beginning of the allocated memory, rather than one address later
-    cout << "allocated " << sizeof(int) * size << " bytes at " << values << "\n";
+    cout << "allocated " << sizeof(T) * size << " bytes at " << values << "\n";
 };
 
-Queue::~Queue() {
+template <class T>
+Queue<T>::~Queue() {
     free(values);
 }
 
-void Queue::Enqueue(int value) {
+template <class T>
+void Queue<T>::Enqueue(T value) {
     if (IsFull()){
         throw std::runtime_error("Queue exceeded maximum size");
     }
@@ -33,12 +36,13 @@ void Queue::Enqueue(int value) {
     currentSize++; // increase the size counter
 }
 
-int Queue::Dequeue() {
+template <class T>
+T Queue<T>::Dequeue() {
     if (IsEmpty()){
         throw std::runtime_error("Queue is empty and cannot be popped");
     }
 
-    int value = *queueFront; // get the value of the current front of the queue
+    T value = *queueFront; // get the value of the current front of the queue
     cout << "currentSize: " << currentSize << " dequeued value: " << value << " from address: " << queueFront << " QueueEnd: " << queueEnd << " QueueFront: " << queueFront << "\n";
     
     if (queueFront == values + maxSize -1)
@@ -54,11 +58,17 @@ int Queue::Dequeue() {
     return value;
 }
 
-bool Queue::IsEmpty() {
+template <class T>
+bool Queue<T>::IsEmpty() {
     return currentSize == 0;
 }
 
 
-bool Queue::IsFull() {
+template <class T>
+bool Queue<T>::IsFull() {
     return currentSize == maxSize;
 }
+
+template class Queue <int>;
+template class Queue <float>;
+template class Queue <long>;
