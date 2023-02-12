@@ -4,9 +4,9 @@
 
 int TestStack() {
 
-    Stack* stack = new Stack(5);
+    Stack<long>* stack = new Stack<long>(5);
 
-    int counter = 0;
+    long counter = INT32_MAX - 5;
 
     while (!stack->IsFull()) {
         stack->Push(counter++);

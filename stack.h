@@ -2,18 +2,19 @@
 using namespace std;
 #pragma once
 
-class Stack 
+template <typename T>
+class Stack
 {
     public:
     Stack(int size);
     ~Stack();
-    void Push(int i);
-    int Pop();
+    void Push(T i);
+    T Pop();
     bool IsEmpty();
     bool IsFull();
 
     private:
-    int* values;
+    T* values;
     int currentSize;
     int maxSize;
 };
